@@ -2,7 +2,7 @@
 # Handwritten Digit Classification with SVD Pattern Recognition
 **Scientific Computing · Numerical Linear Algebra · Python**
 
-📄 **Full report:** [BerVet_miniproject_2.pdf](report/BerVet_miniproject_2.pdf)
+ **Full report:** [BerVet_miniproject_2.pdf](report/BerVet_miniproject_2.pdf)
 
 This project classifies handwritten digits (0–9) by building a low-dimensional subspace for each digit using **SVD**, then predicting labels via **projection residuals**. 
 The goal is to explore how numerical linear algebra can be applied to pattern recognition by constructing subspaces for each digit and classifying test images based on projection residuals. All computations are performed using efficient NumPy matrix operations.
@@ -34,9 +34,7 @@ The implementation is vectorized to handle all test images efficiently.
 ## Results
 
 ### Singular images (examples)
-<p align="center">
-  <img src="figures/singular_images_digit3.png" width="700">
-</p>
+
 
 <p align="center">
   <img src="figures/singular_images_digit8.png" width="700">
