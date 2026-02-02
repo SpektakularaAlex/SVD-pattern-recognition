@@ -11,23 +11,23 @@ The goal is to explore how numerical linear algebra can be applied to pattern re
 
 ## Overview
 
-Each 28×28 image is reshaped into a 784-dimensional vector. For each digit \(d\), we stack \(n\) training vectors into a matrix
-\[
-A_d \in \mathbb{R}^{784 \times n}.
-\]
-We compute
-\[
-A_d = U_d \Sigma_d V_d^\top,
-\]
-and use the first \(k\) left singular vectors \(U_{d,k}\) as a basis for digit \(d\).
+### Method (SVD subspaces + residual classification)
 
-To classify a test image \(\delta\), we project onto each digit basis and compute the residual
-\[
-r_d(\delta) = \lVert (I - U_{d,k}U_{d,k}^\top)\delta \rVert_2.
-\]
-The predicted digit is the one with **smallest residual**.
+Each <b>28×28</b> image is reshaped into a vector in <b>ℝ<sup>784</sup></b>.  
+For each digit <b>d ∈ {0,…,9}</b>, stack <b>n</b> training vectors as columns in <b>A<sub>d</sub></b>.
 
-The implementation is vectorized to handle all test images efficiently.
+<b>Step 1 — SVD per digit</b>  
+We compute: <code>A_d = U_d Σ_d V_d^T</code>  
+and keep the first <b>k</b> left singular vectors <code>U_{d,k}</code> as a basis.
+
+<b>Step 2 — classify by projection residual</b>  
+For a test image <b>x</b>, compute the residual:
+<code>r_d(x) = || (I − U_{d,k}U_{d,k}^T) x ||_2</code>
+
+<b>Prediction:</b> choose the digit with the <b>smallest residual</b>.  
+Implementation is fully <b>vectorized</b> (batch projections, no per-image loops).
+
+
 
 ---
 
