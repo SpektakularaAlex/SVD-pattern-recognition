@@ -41,9 +41,6 @@ The implementation is vectorized to handle all test images efficiently.
 </p>
 
 ### Singular values (examples)
-<p align="center">
-  <img src="figures/singular_values_digit3.png" width="700">
-</p>
 
 <p align="center">
   <img src="figures/singular_values_digit8.png" width="700">
